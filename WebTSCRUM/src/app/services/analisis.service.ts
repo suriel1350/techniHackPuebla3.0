@@ -32,15 +32,14 @@ export class AnalisisService{
 		return this._http.get(this.url+'get-all-analisis', options).map(res => res.json());
 	}
 //
-// 	getProyecto(token, id){
-// 		let headers = new Headers({
-// 			'Content-Type':'application/json',
-// 			'Authorization':token
-// 		});
-//
-// 		let options = new RequestOptions({ headers: headers });
-// 		return this._http.get(this.url+'proyecto/get/'+id, options).map(res => res.json());
-// 	}
+ 	getAnalisis(id){
+ 		let headers = new Headers({
+ 			'Content-Type':'application/json', 			
+ 		});
+
+ 		let options = new RequestOptions({ headers: headers });
+ 		return this._http.get(this.url+'get-analisis/'+id, options).map(res => res.json());
+ 	}
 //
 // 	getMyProjects(token, id){
 // 		let headers = new Headers({

@@ -1,4 +1,4 @@
-<div class="navigation col-lg-1 col-md-1 col-sm-2 col-xs-3">
+<div *ngIf="identity=='true'" class="navigation col-lg-1 col-md-1 col-sm-2 col-xs-3">
   <h1 class="head-title">
     <a [routerLink]="['/']">
       <span class="glyphicon glyphicon-book" style="top: -5px;" aria-hidden="true"></span>
@@ -18,33 +18,7 @@
   </nav>
 </div>
 
-<div class="col-lg-11 col-md-11 col-sm-10 col-xs-9">
 
-    <h1>Bienvenido a Techni</h1>
-    <p>Resultados de analisis</p>
-    <p>
-
-    </p>
-
-  <table class="table table-hover" style="background-color: white;">
-  <thead>
-    <tr>
-      <th class="text-center" scope="col">Id</th>
-      <th class="text-center" scope="col">Opciones</th>
-
-    </tr>
-  </thead>
-  <tbody *ngFor="let use of analisis; let i = index">
-    <tr>
-      <th class="text-center" scope="row">Experimento # {{i+1}}</th>
-      <td class="text-center">
-        <a [routerLink]="['/detallesAnalisis',use._id]" class="btn btn-sm btn-success">Detalles</a>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-</div>
 
 <div [class.hidden]="!identity" class="central col-lg-11">
   <router-outlet></router-outlet>

@@ -70,12 +70,13 @@ function saveAnalisis(req, res){
 	var analisis = new Analisis();
 
 	var params = req.body;
-	analisis.alegria = params.alegria;
-	analisis.tristeza = params.tristeza;
-	analisis.miedo = params.miedo;
-	analisis.asco = params.asco;
-	analisis.ira = params.ira;
-	analisis.disgusto = params.disgusto;
+	analisis.anger = params.anger;
+	analisis.contempt = params.contempt;
+	analisis.disgust = params.disgust;
+	analisis.fear = params.fear;
+	analisis.joy = params.joy;
+	analisis.sadness = params.sadness;
+	analisis.surprice = params.surprice;	
 	analisis.tiempo = params.tiempo;
 	analisis.genero = 'null';
 	//analisis.image = params.image;

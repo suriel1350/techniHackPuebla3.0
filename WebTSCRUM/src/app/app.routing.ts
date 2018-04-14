@@ -17,9 +17,9 @@ import { MiembrosGetComponent } from './components/miembros-list.component';
 import { MiembroEditComponent } from './components/miembros-edit.component';*/
 
 const appRoutes: Routes = [
-	{path: '', component: HomeComponent},
+	{path: '', component: HomeComponent}, 
 	{path: 'inicio', component: HomeComponent},
-  {path: 'detallesAnalisis/:id', component: DetallesComponent},
+  	{path: 'detalles-analisis/:id', component: DetallesComponent},
 	/*{path: 'mis-datos', component: UserEditComponent},
 	{path: 'cambiar-password', component: UserEditPasswordComponent},
 	{path: 'mis-proyectos/:idUser', component: ProyectosComponent},

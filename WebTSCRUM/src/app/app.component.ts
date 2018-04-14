@@ -26,10 +26,11 @@ export class AppComponent implements OnInit{
   ){
 
     this.url = GLOBAL.url;
+    this.identity = "true";
   }
 
   ngOnInit(){
-  	this.getAllAnalisis();
+  	//this.getAllAnalisis();
   }
 
   getAllAnalisis(){
@@ -48,7 +49,7 @@ export class AppComponent implements OnInit{
             }*/
 
             this.analisis = response.analisis;
-
+            
 
 
         }

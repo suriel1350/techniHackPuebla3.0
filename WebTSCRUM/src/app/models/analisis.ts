@@ -7,6 +7,7 @@ export class Analisis{
 		public asco: string,
 		public ira: string,
 		public disgusto: string,
+		public sorpresa: string,
 		public tiempo: string,
 		public genero: string,
 		public image: string		

@@ -4,12 +4,13 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var AnalisisSchema = Schema({
-	alegria: Number,
-	tristeza: Number,
-	miedo: Number, 	
-	asco: Number,
-	ira: Number,
-	disgusto: Number,
+	anger: Number,
+	contempt: Number,
+	disgust: Number, 	
+	fear: Number,
+	joy: Number,
+	sadness: Number,
+	surprice: Number,
 	tiempo: Number,
 	genero: String,
 	image: String
