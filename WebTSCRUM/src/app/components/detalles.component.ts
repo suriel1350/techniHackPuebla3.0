@@ -42,7 +42,7 @@ export class DetallesComponent implements OnInit{
   ){
     this.identity = 'detalles';
     this.url = GLOBAL.url;
-    this.analisis = new Analisis('','','','','','','','','','','');         
+    this.analisis = new Analisis('',0,0,0,0,0,0,0,0,0,0);         
     
   }
 
@@ -61,15 +61,15 @@ export class DetallesComponent implements OnInit{
           } else{            
               console.log(response.analisis.image);               
             this.analisis.id = response.analisis._id;
-            this.analisis.alegria = response.analisis.anger;
-            this.analisis.tristeza = response.analisis.contempt;
-            this.analisis.miedo = response.analisis.disgust;
-            this.analisis.asco = response.analisis.fear;
-            this.analisis.ira = response.analisis.joy;
-            this.analisis.disgusto = response.analisis.sadness;
-            this.analisis.sorpresa = response.analisis.surprice;
-            this.analisis.tiempo = response.analisis.tiempo;
-            this.analisis.genero = response.analisis.genero;
+              this.analisis.disgusto = response.analisis.joy*100;
+              this.analisis.tristeza = response.analisis.sadness*100;            
+              this.analisis.miedo = response.analisis.fear*100;
+              this.analisis.asco = response.analisis.contempt*100;
+              this.analisis.ira = response.analisis.anger*100;
+              this.analisis.alegria = response.analisis.disgust*100;
+              this.analisis.sorpresa = response.analisis.surprice*100;
+            this.analisis.tiempo = response.analisis.tiempo*100;
+            this.analisis.genero = response.analisis.genero*100;
             this.analisis.image = response.analisis.image;
 
 
