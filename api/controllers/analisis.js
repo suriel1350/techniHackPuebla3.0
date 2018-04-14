@@ -7,12 +7,12 @@ var mongoosePaginate = require('mongoose-pagination');
 
 var Analisis = require('../models/analisis');
 
-function decodeBase64Image(dataString) 
+function decodeBase64Image(dataString)
 {
   	var matches = dataString.match(/^data:([A-Za-z-+\/]+);base64,(.+)$/);
   	var response = {};
 
-	if (matches.length != 3) 
+	if (matches.length != 3)
 	{
 		return new Error('Invalid input string');
 	}
@@ -28,7 +28,7 @@ function getAnalisis(req, res){
 
 	Analisis.findById(analisisId, (err, analisis) => {
 		if(err){
-			res.status(500).send({message: 'Error en la petición'});			
+			res.status(500).send({message: 'Error en la petición'});
 		}else{
 			if(!analisis){
 				res.status(404).send({message: 'El analisis no existe'});
@@ -55,14 +55,14 @@ function getAllAnalisis(req, res){
 			if(!all){
 				res.status(404).send({message: 'No hay analisis!!'});
 			}else{
-				return res.status(200).send({analisis: all});	
+				return res.status(200).send({all});	
 			}
 		}
 	});
 }
 
 function saveAnalisis(req, res){
-	var imageTypeRegularExpression = /\/(.*?)$/;	
+	var imageTypeRegularExpression = /\/(.*?)$/;
 	var seed = crypto.randomBytes(20);
 	var uniqueSHA1String = crypto.createHash('sha1').update(seed).digest('hex');
 
@@ -89,7 +89,7 @@ function saveAnalisis(req, res){
 	//console.log(userUploadedImagePath);
 
 	try{
-    	fs.writeFile(userUploadedImagePath, imageBuffer.data, function() 
+    	fs.writeFile(userUploadedImagePath, imageBuffer.data, function()
     	{
     		console.log('Saved to disk image attached by user:', userUploadedImagePath);
 		});
@@ -122,18 +122,18 @@ function deleteAnalisis(req, res){
 			res.status(500).send({message: 'Error en el servidor'});
 		}else{
 			if(!analisisRemoved){
-				res.status(404).send({message: 'El analisis no ha sido eliminado'});				
+				res.status(404).send({message: 'El analisis no ha sido eliminado'});
 			}else{
-				res.status(200).send({analisis: analisisRemoved});				
+				res.status(200).send({analisis: analisisRemoved});
 			}
 		}
-	});		
+	});
 }
 
 function getImageFile(req, res){
 	var imageFile = req.params.imageFile;
 	var path_file = './uploads/dibujos/' + imageFile;
-	
+
 	fs.exists(path_file, function(exists){
 		if(exists){
 			res.sendFile(path.resolve(path_file));

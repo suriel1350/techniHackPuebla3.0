@@ -2,34 +2,66 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { GLOBAL } from './services/global';
-import { UserService } from './services/user.service';
+import { AnalisisService } from './services/analisis.service';
 import { Analisis } from './models/analisis';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  providers: [UserService]
+  providers: [AnalisisService]
 })
 export class AppComponent implements OnInit{
   public title = 'Techni';
-  public analisis: Analisis;  
+  public analisis: Analisis[] = [];
   public identity;
   public token;
   public errorMessage;
-  public alertRegister;
+  public alertMessage;
   public url: string;
 
   constructor(
     private _route: ActivatedRoute,
     private _router: Router,
-    private _userService: UserService
+    private _analisisService: AnalisisService
   ){
-  	
+
     this.url = GLOBAL.url;
   }
 
   ngOnInit(){
-  	
-  }  
+  	this.getAllAnalisis();
+  }
+
+  getAllAnalisis(){
+    this._analisisService.getAllAnalisis().subscribe(
+      response=> {
+        if(!response){
+          this._router.navigate(['/']);
+        } else{
+          //console.log(response);
+            for (var i in response){
+               console.log(response[i]);
+               let aux = new Analisis(response[i]);
+               this.analisis.push(aux);
+          }
+
+            //this.analisis.push(response);
+
+
+
+        }
+        //console.log(this.analisis);
+      },
+      error => {
+        var errorMessage = <any>error;
+        if(errorMessage != null){
+          var body = JSON.parse(error._body);
+          this.alertMessage = body.message;
+
+          console.log(error);
+        }
+      }
+    );
+  }
 
 }

@@ -13,23 +13,35 @@
   </nav>
 
   <nav id="user_logged">
-    
-    
-  </nav> 
+
+
+  </nav>
 </div>
 
 <div class="col-lg-11 col-md-11 col-sm-10 col-xs-9">
-  
+
     <h1>Bienvenido a Techni</h1>
     <p>Resultados de analisis</p>
     <p>
-      
+
     </p>
-  
+
+  <table class="table table-hover">
+   <thead>
+     <tr>
+       <th>Id</th>
+     </tr>
+   </thead>
+
+   <tbody *ngFor="let datos of analisis">
+     <tr>
+       <td>{{datos.tristeza}}</td>       
+     </tr>
+   </tbody>
+ </table>
+
 </div>
 
 <div [class.hidden]="!identity" class="central col-lg-11">
   <router-outlet></router-outlet>
 </div>
-
-
