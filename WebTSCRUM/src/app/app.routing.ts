@@ -3,6 +3,8 @@ import { Routes, RouterModule } from  '@angular/router';
 
 //import user
 import { HomeComponent } from './components/home.component';
+import { DetallesComponent } from './components/detalles.component';
+
 /*import { UserEditComponent } from './components/user-edit.component';
 import { UserEditPasswordComponent } from './components/user-edit-password.component';
 import { ProyectosComponent } from './components/proyectos-list.component';
@@ -13,10 +15,11 @@ import { RegistrarMiembroComponent } from './components/registrar-miembro.compon
 import { ProjectUpdateComponent } from './components/proyecto-update.component';
 import { MiembrosGetComponent } from './components/miembros-list.component';
 import { MiembroEditComponent } from './components/miembros-edit.component';*/
- 
+
 const appRoutes: Routes = [
 	{path: '', component: HomeComponent},
 	{path: 'inicio', component: HomeComponent},
+  {path: 'detallesAnalisis/:id', component: DetallesComponent},
 	/*{path: 'mis-datos', component: UserEditComponent},
 	{path: 'cambiar-password', component: UserEditPasswordComponent},
 	{path: 'mis-proyectos/:idUser', component: ProyectosComponent},
