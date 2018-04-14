@@ -26,19 +26,23 @@
 
     </p>
 
-  <table class="table table-hover">
-   <thead>
-     <tr>
-       <th>Id</th>
-     </tr>
-   </thead>
-
-   <tbody *ngFor="let datos of analisis">
-     <tr>
-       <td>{{datos.tristeza}}</td>       
-     </tr>
-   </tbody>
- </table>
+  <table class="table table-hover" style="background-color: white;">
+  <thead>
+    <tr>      
+      <th class="text-center" scope="col">Id</th>
+      <th class="text-center" scope="col">Opciones</th>
+      
+    </tr>
+  </thead>
+  <tbody *ngFor="let use of analisis; let i = index">
+    <tr>
+      <th class="text-center" scope="row">Experimento # {{i+1}}</th>            
+      <td class="text-center">        
+        <a [routerLink]="['/']" class="btn btn-sm btn-success">Detalles</a>
+      </td>      
+    </tr>     
+  </tbody>
+</table> 
 
 </div>
 

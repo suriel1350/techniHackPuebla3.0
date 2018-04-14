@@ -48,14 +48,14 @@ function getAllAnalisis(req, res){
 
 	var itemsPerPage = 4;
 
-	Analisis.find({},function(err, all){
+	Analisis.find({},function(err, analisis){
 		if(err){
 			res.status(500).send({message: 'Error en la petición'});
 		}else{
-			if(!all){
+			if(!analisis){
 				res.status(404).send({message: 'No hay analisis!!'});
 			}else{
-				return res.status(200).send({all});	
+				return res.status(200).send({analisis: analisis});	
 			}
 		}
 	});

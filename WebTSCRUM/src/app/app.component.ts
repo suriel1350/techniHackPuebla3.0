@@ -12,7 +12,7 @@ import { Analisis } from './models/analisis';
 })
 export class AppComponent implements OnInit{
   public title = 'Techni';
-  public analisis: Analisis[] = [];
+  public analisis: Analisis[];
   public identity;
   public token;
   public errorMessage;
@@ -39,13 +39,15 @@ export class AppComponent implements OnInit{
           this._router.navigate(['/']);
         } else{
           //console.log(response);
-            for (var i in response){
-               console.log(response[i]);
-               let aux = new Analisis(response[i]);
-               this.analisis.push(aux);
-          }
+            /*for (var i in response){
+               console.log(response.analisis);
+               //let aux = new Analisis(response[i]);
+               //this.analisis.push(response.analisis[i]);
+               //let aux = new Analisis(response[i]);
+               //this.analisis.tristeza = "2";
+            }*/
 
-            //this.analisis.push(response);
+            this.analisis = response.analisis;
 
 
 

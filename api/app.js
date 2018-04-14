@@ -8,8 +8,8 @@ var app = express();
 // cragar rutas
 var analisis_routes = require('./routes/analisis');
 
-app.use(bodyParser.urlencoded({extended:true, limit: '50mb'}));
-app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 
 //configurar cabeceras http
