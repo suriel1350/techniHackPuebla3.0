@@ -9,6 +9,7 @@ var md_upload = multipart({uploadDir: './uploads/dibujos'});
 
 api.get('/get-analisis/:id', AnalisisController.getAnalisis);
 api.post('/analisis', AnalisisController.saveAnalisis);
+	api.post('/analisis-prueba', AnalisisController.seeAnalisisFromCS);
 api.get('/get-all-analisis', AnalisisController.getAllAnalisis);
 //api.put('/album/:id', md_auth.ensureAuth, AlbumController.updateAlbum);
 api.delete('/analisis-delete/:id', AnalisisController.deleteAnalisis);
