@@ -17,7 +17,7 @@ mongoose.connect('mongodb://localhost:27017/techni_hack', (err, res) => {
 		console.log("La conexion con la base de datos es correcta...");
 
 		server.listen(port, function(){
-			console.log("Servidor del api rest en htpp://localhost:" + port);
+			console.log("Servidor del api rest en http://localhost:" + port);
 		});
 	}
 });

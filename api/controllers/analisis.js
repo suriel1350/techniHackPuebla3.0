@@ -70,18 +70,25 @@ function saveAnalisis(req, res){
 	var analisis = new Analisis();
 
 	var params = req.body;
-	analisis.anger = params.anger;
-	analisis.contempt = params.contempt;
-	analisis.disgust = params.disgust;
-	analisis.fear = params.fear;
-	analisis.joy = params.joy;
-	analisis.sadness = params.sadness;
-	analisis.surprice = params.surprice;	
+	analisis.anger = params.Emotions[4].Value;
+	analisis.contempt = params.Emotions[2].Value;
+	analisis.disgust = params.Emotions[6].Value;
+	analisis.fear = params.Emotions[7].Value;
+	analisis.joy = params.Emotions[8].Value;
+	analisis.sadness = params.Emotions[5].Value;
+	analisis.surprice = params.Emotions[3].Value;	
 	analisis.tiempo = params.tiempo;
 	analisis.genero = 'null';
 	//analisis.image = params.image;
+	/*console.log(params.Emotions[2].Value);
+	console.log(params.Emotions[3].Value);
+	console.log(params.Emotions[4].Value);
+	console.log(params.Emotions[5].Value);
+	console.log(params.Emotions[6].Value);
+	console.log(params.Emotions[7].Value);
+	console.log(params.Emotions[8].Value);*/
 
-	var imageBuffer = decodeBase64Image(params.image);
+	var imageBuffer = decodeBase64Image(params.Imagen);
 	var userUploadedFeedMessagesLocation = './uploads/dibujos/';
 	var uniqueRandomImageName = 'image-' + uniqueSHA1String;
 	var imageTypeDetected = imageBuffer.type.match(imageTypeRegularExpression);
@@ -144,10 +151,24 @@ function getImageFile(req, res){
 	});
 }
 
+function seeAnalisisFromCS(req, res){
+	var params = req.body;
+	//console.log(params.Emotions[2].Name);
+	console.log(params.Emotions[2].Value);
+	console.log(params.Emotions[3].Value);
+	console.log(params.Emotions[4].Value);
+	console.log(params.Emotions[5].Value);
+	console.log(params.Emotions[6].Value);
+	console.log(params.Emotions[7].Value);
+	console.log(params.Emotions[8].Value);
+	res.status(200).send({message: 'Yeahh'});
+}
+
 module.exports = {
 	saveAnalisis,
 	getAllAnalisis,
 	getAnalisis,
 	deleteAnalisis,
-	getImageFile
+	getImageFile,
+	seeAnalisisFromCS
 };
